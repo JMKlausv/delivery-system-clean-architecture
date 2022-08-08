@@ -1,0 +1,20 @@
+﻿
+
+namespace Domain.Entities
+{
+    public class Order
+    {
+        public int Id { get; set; }
+        public  Viechle Viechle { get; set; } 
+        public int ViechleId { get; set; }  
+
+        public   IEnumerable<OrderProductItem> Products { get; set; }
+
+        public float TotalPrice { get; set; }   
+        public DateTime OrderDate { get; set; } 
+        public DateTime DeliveryDate { get; set; }  
+        public  OrderAddress OrderAddress { get; set; } 
+
+
+    }
+}
