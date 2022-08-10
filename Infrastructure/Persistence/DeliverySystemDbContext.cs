@@ -1,7 +1,11 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Entities;
+using Infrastructure.identity;
 using MediatR;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence
 {
-    public class DeliverySystemDbContext : DbContext, IDeliverySystemDbContext
+    public class DeliverySystemDbContext : IdentityDbContext<ApplicationUser>, IDeliverySystemDbContext
     {
         private readonly IMediator _mediator;
 
@@ -26,6 +30,7 @@ namespace Infrastructure.Persistence
         public DbSet<OrderAddress> OrderAddresses => Set<OrderAddress>();
         public DbSet<OrderProductItem> OrderProductItems => Set<OrderProductItem>();
 
+        public DatabaseFacade database => Database;
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -37,6 +42,6 @@ namespace Infrastructure.Persistence
             //TODO: dispatching domain events
             return await base.SaveChangesAsync(cancellationToken);
         }
-
+        
     }
 }

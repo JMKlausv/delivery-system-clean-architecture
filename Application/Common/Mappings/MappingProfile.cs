@@ -1,5 +1,7 @@
 using System.Reflection;
+using Application.Orders;
 using AutoMapper;
+using Domain.Entities;
 
 namespace Application.Common.Mappings;
 
@@ -8,10 +10,14 @@ public class MappingProfile : Profile
     public MappingProfile()
     {
         ApplyMappingsFromAssembly(Assembly.GetExecutingAssembly());
+        
     }
 
     private void ApplyMappingsFromAssembly(Assembly assembly)
     {
+  CreateMap<OrderDto,Order>();  
+  CreateMap<OrderAddressDto,OrderAddress>();  
+  CreateMap<OrderProductItemDto,OrderProductItem>();  
         var mapFromType = typeof(IMapFrom<>);
         
         var mappingMethodName = nameof(IMapFrom<object>.Mapping);

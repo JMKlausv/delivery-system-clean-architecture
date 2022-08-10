@@ -11,12 +11,9 @@ namespace Application.Orders
     public class OrderDto : IMapFrom<Order>
     {
         public int ViechleId { get; set; }
-
-        public IEnumerable<OrderProductItemDto> Products { get; set; }
-
         public float TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public OrderAddressDto OrderAddress { get; set; }
+       
     }
 }

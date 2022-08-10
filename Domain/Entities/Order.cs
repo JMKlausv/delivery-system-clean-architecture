@@ -2,7 +2,7 @@
 
 namespace Domain.Entities
 {
-    public class Order
+    public class Order : IIdentity
     {
         public int Id { get; set; }
         public  Viechle Viechle { get; set; } 

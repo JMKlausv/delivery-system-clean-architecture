@@ -15,16 +15,8 @@ namespace WebApi.Controllers
     [ApiController]
     public class ProductController : ApiControllerBase
     {
-        /*
+       
         // GET: api/<ProductController>
-        [HttpGet]
-        public async Task<IEnumerable<Product>> Get()
-        {
-
-            return await Mediator.Send(new GetProductsQuery()) ;
-        }
-        */
-
         [HttpGet]
         public async Task<IEnumerable<Product>> GetFiltered([FromQuery] string? categoryId)
         {
