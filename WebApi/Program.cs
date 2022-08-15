@@ -1,6 +1,8 @@
 
 
+using Application.Common.Interfaces;
 using Infrastructure.Persistence;
+using WebApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,12 +10,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
     options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
 );
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddAuthorization();
+builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
 var app = builder.Build();
 

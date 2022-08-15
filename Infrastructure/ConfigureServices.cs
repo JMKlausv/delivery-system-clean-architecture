@@ -41,7 +41,12 @@ namespace Microsoft.Extensions.DependencyInjection;
             services.AddTransient<IIdentityService, IdentityService>();
 
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(option =>
+        services.AddAuthentication(ops =>
+        {
+            ops.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            ops.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            ops.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+        }).AddJwtBearer(option =>
             {
                 option.TokenValidationParameters = new TokenValidationParameters()
                 {
@@ -55,6 +60,7 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 
                 };
+               
             });
 
 

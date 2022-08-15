@@ -5,6 +5,7 @@ using Application.Products.Queries.GetFilteredProduct;
 using Application.Products.Queries.GetProducts;
 using Application.Products.Queries.GetSingleProduct;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,6 +14,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class ProductController : ApiControllerBase
     {
        
@@ -46,6 +48,7 @@ namespace WebApi.Controllers
 
         // POST api/<ProductController>
         [HttpPost]
+        [Authorize(AuthenticationSchemes = "Bearer" , Roles ="admin")]
         public async Task<IActionResult> Post([FromBody] CreateProductCommand command)
         {
             return Ok(await Mediator.Send(command));
@@ -53,6 +56,7 @@ namespace WebApi.Controllers
 
         // PUT api/<ProductController>/5
         [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
         public async Task<IActionResult> Put(int id, [FromBody] Product product)
         {
             var command = new UpdateProductCommand
@@ -65,6 +69,7 @@ namespace WebApi.Controllers
 
         // DELETE api/<ProductController>/5
         [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var command = new DeleteProductCommand

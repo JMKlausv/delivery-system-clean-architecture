@@ -81,3 +81,4 @@ C:\Users\hp\Documents\projects\delivery-system-api-CA\WebApi\bin\Debug\net6.0\Mi
 C:\Users\hp\Documents\projects\delivery-system-api-CA\WebApi\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\hp\Documents\projects\delivery-system-api-CA\WebApi\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\hp\Documents\projects\delivery-system-api-CA\WebApi\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\hp\Documents\projects\delivery-system-api-CA\WebApi\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

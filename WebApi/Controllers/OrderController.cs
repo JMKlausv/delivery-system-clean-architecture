@@ -4,6 +4,7 @@ using Application.Orders.Command.UpdateOrder;
 using Application.Orders.Query;
 using Application.Orders.Query.GetOrders;
 using Application.Orders.Query.GetSingleOrder;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,6 +13,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class OrderController : ApiControllerBase
     {
         // GET: api/<OrderController>
@@ -36,6 +38,7 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateOrderCommand command)
         {
+            
             return Ok(await Mediator.Send(command));
         }
 

@@ -2,6 +2,7 @@
 using Application.Common.Interfaces;
 using AutoMapper;
 using Domain.Entities;
+using FluentValidation;
 using MediatR;
 using Microsoft.EntityFrameworkCore.Storage;
 using System;
@@ -9,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ValidationException = Application.Common.Exceptions.ValidationException;
 
 namespace Application.Orders.Command.CreateOrder
 {
@@ -17,8 +19,7 @@ namespace Application.Orders.Command.CreateOrder
         public int ViechleId { get; set; }
 
         public IEnumerable<OrderProductItemDto> Products { get; set; }
-
-        public float TotalPrice { get; set; }
+        public float? TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
         public OrderAddressDto OrderAddress { get; set; }
@@ -28,14 +29,16 @@ namespace Application.Orders.Command.CreateOrder
         private readonly IDeliverySystemDbContext _context;
         private readonly IMapper _mapper;
 
+
         public CreateOrderCommandHandler(IDeliverySystemDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
+         
         }
         public async Task<int> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
         {
-
+           
 
             using (IDbContextTransaction transaction = _context.database.BeginTransaction())
             {

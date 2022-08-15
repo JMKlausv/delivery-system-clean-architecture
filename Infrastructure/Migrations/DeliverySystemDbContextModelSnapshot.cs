@@ -40,7 +40,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Order", b =>
@@ -67,7 +67,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("ViechleId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.OrderAddress", b =>
@@ -103,7 +103,7 @@ namespace Infrastructure.Migrations
                     b.HasIndex("OrderId")
                         .IsUnique();
 
-                    b.ToTable("OrderAddresses");
+                    b.ToTable("OrderAddresses", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.OrderProductItem", b =>
@@ -129,7 +129,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("OrderProductItems");
+                    b.ToTable("OrderProductItems", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Product", b =>
@@ -161,7 +161,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Viechle", b =>
@@ -189,7 +189,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Viechles");
+                    b.ToTable("Viechles", (string)null);
                 });
 
             modelBuilder.Entity("Infrastructure.identity.ApplicationUser", b =>

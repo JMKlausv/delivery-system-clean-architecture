@@ -11,7 +11,7 @@ namespace Application.Orders
     public class OrderDto : IMapFrom<Order>
     {
         public int ViechleId { get; set; }
-        public float TotalPrice { get; set; }
+        public float? TotalPrice { get; set; }
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
        

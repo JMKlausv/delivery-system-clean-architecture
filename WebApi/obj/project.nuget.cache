@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "fHtLZgbKU2gGpk3ddXD5DguCURGP//6ArNf3ey4rKd+MqL3YKZmeygjsi3BzJTjtLcTKCbOhN5rBkr9KDpbRbA==",
+  "dgSpecHash": "vwRStfpTTYMwaw4g0pWEyfz/E0fFlGnPryXPg90TaTj4+Dm6xQ8druxtgSgVnutchXPVeqYB0LHq9rLImioE8Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\hp\\Documents\\projects\\delivery-system-api-CA\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hp\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
-    "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation\\11.1.1\\fluentvalidation.11.1.1.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation\\11.2.0\\fluentvalidation.11.2.0.nupkg.sha512",
+    "C:\\Users\\hp\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.2.0\\fluentvalidation.dependencyinjectionextensions.11.2.0.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
     "C:\\Users\\hp\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",

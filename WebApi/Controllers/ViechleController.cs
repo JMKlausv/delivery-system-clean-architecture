@@ -4,6 +4,7 @@ using Application.Viechles.Commands.UpdateViechle;
 using Application.Viechles.Queries.GetSingleViechle;
 using Application.Viechles.Queries.GetViechles;
 using Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,6 +13,7 @@ namespace WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class ViechleController : ApiControllerBase
     {
         // GET: api/<ViechleController>
@@ -28,35 +30,38 @@ namespace WebApi.Controllers
             return await Mediator.Send(new GetSingleViechleQuery(id));
         }
        
-                // POST api/<ViechleController>
-                [HttpPost]
-                public async Task<IActionResult> Post([FromBody] CreateViechleCommand command)
+       // POST api/<ViechleController>
+        [HttpPost]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
+        public async Task<IActionResult> Post([FromBody] CreateViechleCommand command)
                 {
                     return Ok(await Mediator.Send(command));
                 }
 
-               // PUT api/<ViechleController>/5
-               [HttpPut("{id}")]
-               public async Task<IActionResult> Put(int id, [FromBody] Viechle viechle)
-               {
-                   var cmd = new UpdateViechleCommand
-                   {
-                       Id = id,
-                       Viechle = viechle
-                   };
-                   return Ok(await Mediator.Send(cmd));
-               }
+         // PUT api/<ViechleController>/5
+        [HttpPut("{id}")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
+        public async Task<IActionResult> Put(int id, [FromBody] Viechle viechle)
+        {
+           var cmd = new UpdateViechleCommand
+           {
+             Id = id,
+             Viechle = viechle
+           };
+         return Ok(await Mediator.Send(cmd));
+        }
 
-               // DELETE api/<ViechleController>/5
-               [HttpDelete("{id}")]
-               public async Task<IActionResult> Delete(int id)
-               {
-                   var cmd = new DeleteViechleCommand
-                   {
-                       Id = id
-                   };
-                   return Ok(await Mediator.Send(cmd));
-               }
+        // DELETE api/<ViechleController>/5
+        [HttpDelete("{id}")]
+        [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
+        public async Task<IActionResult> Delete(int id)
+        {
+             var cmd = new DeleteViechleCommand
+             {
+                 Id = id
+             };
+          return Ok(await Mediator.Send(cmd));
+        }
              
     }
 }

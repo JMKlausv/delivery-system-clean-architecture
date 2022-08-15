@@ -1,6 +1,7 @@
 ﻿using Application.Common.Interfaces;
 using Application.Common.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 
@@ -17,7 +18,6 @@ namespace Infrastructure.identity
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IConfiguration _configuration;
 
-        //TODO: implement authorization......
         public IdentityService(UserManager<ApplicationUser> userManager , IConfiguration configuration)
         {
            _userManager = userManager;
@@ -38,6 +38,14 @@ namespace Infrastructure.identity
             return (Result.Failure(errors), string.Empty);
 
 
+        }
+
+
+        public async Task<string> GetUserNameAsync(string userId)
+        {
+            var user = await _userManager.Users.FirstAsync(u => u.Id == userId);
+
+            return user.UserName;
         }
 
         public async Task<(Result result, string userId)> CreateUserAsync(string email, string password)
@@ -88,10 +96,5 @@ namespace Infrastructure.identity
             return tokenString;
         }
 
-
-
-
-        //TODO:
-        //public bool authorizeUser(user)
     }
 }
