@@ -22,6 +22,8 @@ namespace Infrastructure.Persistence.Configuration
             builder.Property(t => t.LicenceNumber)
                 .HasMaxLength(400)
                 .IsRequired();
+
+          
         }
     }
 }

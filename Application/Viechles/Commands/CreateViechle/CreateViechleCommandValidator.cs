@@ -14,6 +14,7 @@ namespace Application.Viechles.Commands.CreateViechle
         {
             RuleFor(v => v.Model)
                 .MaximumLength(200)
+                
                 .NotEmpty();
             RuleFor(v => v.Type)
                .MaximumLength(200)

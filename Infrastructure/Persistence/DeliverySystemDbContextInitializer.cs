@@ -1,4 +1,5 @@
-﻿using Infrastructure.identity;
+﻿using Domain.Entities;
+using Infrastructure.identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -10,28 +11,31 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence
 {
-    public  class DeliverySystemDbContextInitializer
+    public class DeliverySystemDbContextInitializer
     {
         private readonly ILogger<DeliverySystemDbContextInitializer> _logger;
         private readonly DeliverySystemDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly RoleManager<IdentityRole> _roleManager;
 
-        public DeliverySystemDbContextInitializer(ILogger<DeliverySystemDbContextInitializer> logger,DeliverySystemDbContext context , UserManager<ApplicationUser> userManager , RoleManager<IdentityRole> roleManager)
+        public DeliverySystemDbContextInitializer(ILogger<DeliverySystemDbContextInitializer> logger, DeliverySystemDbContext context, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
-           _logger = logger;
-           _context = context;
-           _userManager = userManager;
-           _roleManager = roleManager;
+            _logger = logger;
+            _context = context;
+            _userManager = userManager;
+            _roleManager = roleManager;
         }
         public async Task InitialiseAsync()
         {
             try
             {
-                if (_context.Database.IsSqlServer())
+                if (_context.Database.IsMySql() 
+                // && _context.Database.ProviderName != "Microsoft.EntityFrameworkCore.InMemory"
+                )
                 {
                     await _context.Database.MigrateAsync();
                 }
+                
             }
             catch (Exception ex)
             {
@@ -45,6 +49,7 @@ namespace Infrastructure.Persistence
             try
             {
                 await TrySeedAsync();
+                await TrySeedViechle();
             }
             catch (Exception ex)
             {
@@ -63,35 +68,64 @@ namespace Infrastructure.Persistence
             {
                 await _roleManager.CreateAsync(adminRole);
             }
-            if(_roleManager.Roles.All(r=>r.Name != systemUserRole.Name))
+            if (_roleManager.Roles.All(r => r.Name != systemUserRole.Name))
             {
                 await _roleManager.CreateAsync(systemUserRole);
             }
 
             // Default users
-            ApplicationUser administrator = new ApplicationUser { 
+            ApplicationUser administrator = new ApplicationUser
+            {
                 Email = "admin@gmail.com",
                 SecurityStamp = Guid.NewGuid().ToString(),
-                UserName="admin"
+                UserName = "admin"
             };
-  
+
             var defaultPassword = "pass123";
-            _logger.LogCritical($"userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr : {administrator} ");
+            // _logger.LogCritical($"userrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr : {administrator} ");
             if (_userManager.Users.All(u => u.Email != administrator.Email))
             {
-               var result =  await _userManager.CreateAsync(administrator, defaultPassword);
+                var result = await _userManager.CreateAsync(administrator, defaultPassword);
                 if (!result.Succeeded)
                 {
                     _logger.LogError($"could not create user : {administrator} ");
-                        }
+                }
                 await _context.SaveChangesAsync();
 
                 await _userManager.AddToRolesAsync(administrator, new[] { adminRole.Name });
             }
 
-           
 
-                await _context.SaveChangesAsync();
-            }
+
+            await _context.SaveChangesAsync();
         }
+        public async Task TrySeedViechle()
+        {
+            _logger.LogCritical("sedding viechle.........");
+            IList<Viechle> viechles = new List<Viechle>{
+            new Viechle {
+
+                Model = "model1",
+                LicenceNumber = "DD438975983",
+                Type = "type1",
+            },
+              new Viechle {
+
+                Model = "model2",
+                LicenceNumber = "hg7487398298",
+                Type = "type2",
+            },
+              new Viechle {
+
+                Model = "model3",
+                LicenceNumber = "hg7487398287",
+                Type = "type2",
+            }
+        };
+            _context.Viechles.AddRange(viechles);
+            await _context.SaveChangesAsync();
+
+        }
+
     }
+}

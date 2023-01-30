@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "jWOEBArOzQX/5x6ZnItON/OSBMGaT5cdZEPS7D30SIUM/OzrPp7v937+8K/M/1czJ3L9OVAND9KeZb1PixY/ng==",
+  "dgSpecHash": "FLjdVh7vlBlo4qflUc6lo4h/LLhZ5+NhSvOfKIvlEsAXSLmrG7zUX8w3AoQPeQD1lyER6W28IMKz/tkDkM2ozA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hp\\Documents\\projects\\delivery-system-api-CA\\Domain\\Domain.csproj",
+  "projectFilePath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

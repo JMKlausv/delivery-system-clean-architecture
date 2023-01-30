@@ -1,4 +1,5 @@
-﻿using Application.Viechles.Commands.CreateViechle;
+﻿using Application.Common.Exceptions;
+using Application.Viechles.Commands.CreateViechle;
 using Application.Viechles.Commands.DeleteViechle;
 using Application.Viechles.Commands.UpdateViechle;
 using Application.Viechles.Queries.GetSingleViechle;
@@ -18,6 +19,7 @@ namespace WebApi.Controllers
     {
         // GET: api/<ViechleController>
         [HttpGet]
+        // [AllowAnonymous]
         public async Task<IEnumerable<Viechle>> Get()
         {
             return await Mediator.Send(new GetViechlesQuery());
@@ -29,26 +31,26 @@ namespace WebApi.Controllers
         {
             return await Mediator.Send(new GetSingleViechleQuery(id));
         }
-       
-       // POST api/<ViechleController>
+
+        // POST api/<ViechleController>
         [HttpPost]
         [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
         public async Task<IActionResult> Post([FromBody] CreateViechleCommand command)
-                {
-                    return Ok(await Mediator.Send(command));
-                }
+        {
+            return Ok(await Mediator.Send(command));
+        }
 
-         // PUT api/<ViechleController>/5
+        // PUT api/<ViechleController>/5
         [HttpPut("{id}")]
         [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
         public async Task<IActionResult> Put(int id, [FromBody] Viechle viechle)
         {
-           var cmd = new UpdateViechleCommand
-           {
-             Id = id,
-             Viechle = viechle
-           };
-         return Ok(await Mediator.Send(cmd));
+            var cmd = new UpdateViechleCommand
+            {
+                Id = id,
+                Viechle = viechle
+            };
+            return Ok(await Mediator.Send(cmd));
         }
 
         // DELETE api/<ViechleController>/5
@@ -56,12 +58,21 @@ namespace WebApi.Controllers
         [Authorize(AuthenticationSchemes = "Bearer", Roles = "admin")]
         public async Task<IActionResult> Delete(int id)
         {
-             var cmd = new DeleteViechleCommand
-             {
-                 Id = id
-             };
-          return Ok(await Mediator.Send(cmd));
+            try
+            {
+                var cmd = new DeleteViechleCommand
+                {
+                    Id = id
+                };
+                return Ok(await Mediator.Send(cmd));
+            }
+            catch (NotFoundException ex)
+            {
+
+                return NotFound(ex.Message);
+            }
+
         }
-             
+
     }
 }

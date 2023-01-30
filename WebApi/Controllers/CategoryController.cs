@@ -25,7 +25,7 @@ namespace WebApi.Controllers
        
         public async Task<IEnumerable<Category>> GetAsync()
         {
-            return await Mediator.Send(new GetViechlesQuery());
+            return await Mediator.Send(new GetCategoriesQuery());
         }
 
         // GET api/<CategoryController>/5

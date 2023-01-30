@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace Application.Categories.Queries.GetCategories
 {
-    public record GetViechlesQuery : IRequest<IEnumerable<Category>>;
+    public record GetCategoriesQuery : IRequest<IEnumerable<Category>>;
 
-    public class GetCategoriesQueryHandler : IRequestHandler<GetViechlesQuery, IEnumerable<Category>>
+    public class GetCategoriesQueryHandler : IRequestHandler<GetCategoriesQuery, IEnumerable<Category>>
     {
         private readonly IDeliverySystemDbContext _context;
 
@@ -19,7 +19,7 @@ namespace Application.Categories.Queries.GetCategories
         {
             _context = context;
         }
-        public async Task<IEnumerable<Category>> Handle(GetViechlesQuery request, CancellationToken cancellationToken)
+        public async Task<IEnumerable<Category>> Handle(GetCategoriesQuery request, CancellationToken cancellationToken)
         {
             return   _context.Categories.ToList();
         }

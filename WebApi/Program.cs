@@ -19,6 +19,8 @@ builder.Services.AddApplicationServices();
 builder.Services.AddAuthorization();
 builder.Services.AddSingleton<ICurrentUserService, CurrentUserService>();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -49,3 +51,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+public partial class Program{}

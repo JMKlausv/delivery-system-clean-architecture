@@ -16,29 +16,35 @@ using System.Threading.Tasks;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
-    public static class ConfigureServices
+public static class ConfigureServices
+{
+    public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
-        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+
+        //    services.AddDbContext<DeliverySystemDbContext>(options =>
+        //         options.UseSqlServer(configuration.GetConnectionString("DeliverySystemDbConnectionString"),
+        //             builder => builder.MigrationsAssembly(typeof(DeliverySystemDbContext).Assembly.FullName)));
+
+        services.AddDbContext<DeliverySystemDbContext>(options =>
         {
+            options.UseMySql(configuration.GetConnectionString("DeliverySystemDbConnectionString"),
+              Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.29-mysql"),
+              mySqlOptions => mySqlOptions.EnableRetryOnFailure());
+        });
 
-           services.AddDbContext<DeliverySystemDbContext>(options =>
-                options.UseSqlServer(configuration.GetConnectionString("DeliverySystemDbConnectionString"),
-                    builder => builder.MigrationsAssembly(typeof(DeliverySystemDbContext).Assembly.FullName)));
+        services.AddScoped<IDeliverySystemDbContext>(provider => provider.GetRequiredService<DeliverySystemDbContext>());
+        services.AddScoped<DeliverySystemDbContextInitializer>();
+        services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+        {
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = false;
+            options.User.RequireUniqueEmail = true;
 
+        })
+         .AddEntityFrameworkStores<DeliverySystemDbContext>()
+         .AddDefaultTokenProviders();
 
-           services.AddScoped<IDeliverySystemDbContext>(provider => provider.GetRequiredService<DeliverySystemDbContext>());
-           services.AddScoped<DeliverySystemDbContextInitializer>();
-           services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-           {
-               options.Password.RequireNonAlphanumeric = false;
-               options.Password.RequireUppercase = false; 
-               options.User.RequireUniqueEmail = true;
-           
-           })
-            .AddEntityFrameworkStores<DeliverySystemDbContext>()
-            .AddDefaultTokenProviders();
-
-            services.AddTransient<IIdentityService, IdentityService>();
+        services.AddTransient<IIdentityService, IdentityService>();
 
 
         services.AddAuthentication(ops =>
@@ -60,11 +66,11 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 
                 };
-               
+
             });
 
 
         return services;
-        }
     }
+}
 

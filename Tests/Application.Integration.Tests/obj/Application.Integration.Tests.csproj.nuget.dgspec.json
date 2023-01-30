@@ -1,0 +1,426 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Tests/Application.Integration.Tests/Application.Integration.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj",
+        "projectName": "Application",
+        "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj",
+        "packagesPath": "/home/f/.nuget/packages/",
+        "outputPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/f/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.2.0, )"
+            },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.2.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/f/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj",
+        "projectName": "Domain",
+        "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj",
+        "packagesPath": "/home/f/.nuget/packages/",
+        "outputPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/f/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/f/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/Infrastructure.csproj",
+        "projectName": "Infrastructure",
+        "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/Infrastructure.csproj",
+        "packagesPath": "/home/f/.nuget/packages/",
+        "outputPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/f/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[6.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/f/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Tests/Application.Integration.Tests/Application.Integration.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Tests/Application.Integration.Tests/Application.Integration.Tests.csproj",
+        "projectName": "Application.Integration.Tests",
+        "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Tests/Application.Integration.Tests/Application.Integration.Tests.csproj",
+        "packagesPath": "/home/f/.nuget/packages/",
+        "outputPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Tests/Application.Integration.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/f/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj"
+              },
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/Infrastructure.csproj"
+              },
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/WebApi/WebApi.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/WebApi/WebApi.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.9.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[6.0.13, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.4, )"
+            },
+            "WebMotions.Fake.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.1.1, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/f/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/WebApi/WebApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/WebApi/WebApi.csproj",
+        "projectName": "WebApi",
+        "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/WebApi/WebApi.csproj",
+        "packagesPath": "/home/f/.nuget/packages/",
+        "outputPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/WebApi/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/f/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Application/Application.csproj"
+              },
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Domain/Domain.csproj"
+              },
+              "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/f/Documents/Tihitna/practices/UnitTestPractice/delivery-system-clean-architecture/Infrastructure/Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.JsonPatch": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.7, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/f/dotnet/sdk/6.0.403/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

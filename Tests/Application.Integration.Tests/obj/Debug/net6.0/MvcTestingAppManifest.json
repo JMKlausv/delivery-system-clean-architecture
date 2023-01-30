@@ -1,0 +1,6 @@
+{
+  "Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/f\/Documents\/Tihitna\/practices\/UnitTestPractice\/delivery-system-clean-architecture\/Application",
+  "Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/f\/Documents\/Tihitna\/practices\/UnitTestPractice\/delivery-system-clean-architecture\/Domain",
+  "Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/f\/Documents\/Tihitna\/practices\/UnitTestPractice\/delivery-system-clean-architecture\/Infrastructure",
+  "WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null": "\/home\/f\/Documents\/Tihitna\/practices\/UnitTestPractice\/delivery-system-clean-architecture\/WebApi"
+}
